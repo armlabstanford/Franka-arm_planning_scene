@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<launch>
+  <node pkg="tf2_ros" type="static_transform_publisher" name="virtual_joint_broadcaster_1" args="0 0 0 0 0 0 world panda_link0" />
+    <arg name="gui" default="true" />
+    <arg name="load_gripper" default="true" />
+  <arg name="robot_ip" default="172.16.0.2"/>
+ <arg name="publish_rate" default="30" />
+  <arg name="rvizbool" default="false" />
+
+  <include file="$(find franka_control)/launch/franka_control.launch" >
+    <arg name="robot_ip" value="$(arg robot_ip)" />
+    <arg name="load_gripper" value="$(arg load_gripper)" />
+  </include>
+
+
+    <include file="$(find panda_moveit_config)/launch/planning_context.launch">
+        <arg name="load_robot_description" value="true" />
+        <arg name="load_gripper" value="$(arg load_gripper)" /> 
+
+    </include>
+
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="position_joint_trajectory_controller"/> 
+    <include file="$(find panda_moveit_config)/launch/move_group.launch">
+
+  <arg name="load_gripper" value="$(arg load_gripper)" />
+
+</include>
+
+    <group if="$(arg gui)">
+        <include file="$(find panda_moveit_config)/launch/moveit_rviz.launch" />
+    </group>
+
+</launch>
