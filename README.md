@@ -20,8 +20,7 @@ This launch file runs Rviz, franka position controller, and planning scene code.
 
 Inside of Rviz, click 'next' in RvizVisualToolsGui tab. The robot will move below the object avoiding obstacles. 
 
-![robot_img](https://imgur.com/WquQYp1)
-
+![robot_img](https://i.imgur.com/WquQYp1.png)
 
 ## Log
 
