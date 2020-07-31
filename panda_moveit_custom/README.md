@@ -1,5 +1,5 @@
 # Franka-arm_planning_scene
-ARMLab Planning scene and ros package for franka arm in Kinetic devel. The planning scene ensures no collision with table or pillar in the lab.
+Planning scene and ros package for franka arm in Kinetic devel
 
 ## Log
 

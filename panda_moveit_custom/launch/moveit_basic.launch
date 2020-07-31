@@ -30,4 +30,8 @@
         <include file="$(find panda_moveit_config)/launch/moveit_rviz.launch" />
     </group>
 
+  <node name="arm_planning" pkg="panda_moveit_custom" type="arm_planning" respawn="false" output="screen">
+  </node>
+
+
 </launch>

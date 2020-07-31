@@ -1,6 +1,0 @@
-<launch>
-
-  <node name="arm_planning" pkg="panda_moveit_custom" type="arm_planning" respawn="false" output="screen">
-  </node>
-
-</launch>
